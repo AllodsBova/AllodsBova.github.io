@@ -1,37 +1,18 @@
-# BOVA — Beyond the Source
+# BOVA — Beyond the Source / Landing 2.0
 
-A lightweight, responsive landing page for the BOVA research initiative, designed in the Midnight Violet visual identity.
+A lightweight bilingual (EN/RU) research landing page in Midnight Violet, built for GitHub Pages. No build step or external dependencies.
 
 ## Features
 
-- Plain HTML, CSS and JavaScript; no dependencies or build step.
-- Mobile-friendly, accessible navigation and reduced-motion support.
-- English / Russian language toggle, saved locally in the browser.
-- Brand-first design with inline vector graphics, reusable for future projects.
-- Actual links to BOVA's existing GitHub profile, research repository and research story.
-- No speculative public releases or misleading project statistics.
+- Animated geometry and pointer-responsive hero visualization (illustrative only).
+- Scroll-triggered entrance effects, focus states, and restrained hover interactions.
+- Five-step animated roadmap, clearly marked as **proposed** (no dates or fictional releases).
+- Working links to the existing Allods Online research story and BOVA Research repository.
+- EN/RU language switch persisted locally, responsive mobile navigation, back-to-top control.
+- Accessibility: semantic markup, keyboard controls, reduced-motion preference support.
 
-## Publish with GitHub Pages
+## Publish
 
-1. Create a **public** repository called **`AllodsBova.github.io`** under the **AllodsBova** account.
-2. Upload **all files and the `assets` folder** from this directory to the repository root on the `main` branch. Include `index.html`, `styles.css`, `script.js`, `assets/favicon.svg` and `.nojekyll`.
-3. Open repository **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**, `main`, `/(root)`, and click **Save**.
-5. Once GitHub Pages has published the site, visit **https://allodsbova.github.io/**. Initial publication can take several minutes.
+Use repository `AllodsBova/AllodsBova.github.io`. Back up the existing files, then upload `index.html`, `styles.css`, `script.js`, `.nojekyll` and the `assets/` folder into the repository root (`main`). In GitHub Settings → Pages select `Deploy from a branch` → `main` → `/ (root)`.
 
-## Local preview
-
-You can open `index.html` directly or serve the folder locally:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
-
-## Notes
-
-- The Open Graph image references the existing public BOVA GitHub banner via GitHub raw media URL.
-- The hero diagram is an abstract **concept**, not a functional model viewer, and does not depict a released tool.
-- There are no tracking scripts or external JavaScript dependencies.
-- All links are intentional and point to public BOVA resources.
+Open <https://allodsbova.github.io/> after the Pages deployment completes. The roadmap is a proposal; update phases only when the team has confirmed scope and progress. The current hero visual is an original conceptual SVG, **not** a screenshot of a working tool.

@@ -1,122 +1,204 @@
 (() => {
   'use strict';
-
-  const translations = {
+  const dictionary = {
     en: {
-      nav_about: 'About', nav_focus: 'Expertise', nav_research: 'Research', nav_direction: 'Direction',
-      hero_eyebrow: 'INDEPENDENT GAME TECHNOLOGY RESEARCH',
-      hero_line_1: 'Beyond the', hero_line_2: 'source.', hero_subline: 'Into the unknown.',
-      hero_description: 'We explore what sits beneath the surface of games — from undocumented binary formats and client internals to the tools that make hidden systems understandable.',
-      hero_primary: 'Explore our research', hero_secondary: 'Get to know BOVA', scroll: 'SCROLL TO EXPLORE',
-      about_overline: 'WHO WE ARE', about_title: 'Curiosity is our starting point.',
-      about_p1: 'BOVA is an independent research and development initiative focused on understanding the technology behind games.',
-      about_p2: 'We investigate undocumented formats, explore client and asset structures, and turn complex findings into practical knowledge. No unnecessary hype. Just research, experiments, and the drive to understand how things work.',
-      about_signature: 'RESEARCH · UNDERSTAND · REBUILD',
-      focus_overline: 'OUR FOCUS', focus_title: 'Exploring the unexplored.',
-      focus_subtitle: 'Four disciplines, one approach: look closer, question assumptions, and make the unknown understandable.',
-      focus_1_title: 'Reverse Engineering', focus_1_text: 'Studying game clients and undocumented systems to understand what happens beneath the interface.',
-      focus_2_title: 'Binary Formats', focus_2_text: 'Exploring proprietary file layouts, archives, serialization, and the data that connects them.',
-      focus_3_title: 'Game Assets', focus_3_text: 'Investigating geometry, textures, maps, and other building blocks of virtual worlds.',
-      focus_4_title: 'Tool Development', focus_4_text: 'Designing focused utilities to inspect, visualize, and work with complex game resources.',
-      research_overline: 'SELECTED WORK', research_title: 'Ideas backed by investigation.',
-      research_subtitle: 'A look into the research and technical work that shaped BOVA.',
-      research_card1_tag: 'FIELD NOTES / REVERSE ENGINEERING', research_card1_kind: 'EARLIER RESEARCH',
-      research_card1_title: 'Allods Online Client Research',
-      research_card1_desc: 'Our earlier work with client analysis, reverse engineering, and custom development tools.',
-      research_card1_link: 'Read the story', research_card2_tag: 'PUBLIC REPOSITORY', research_card2_kind: 'GITHUB / OPEN RESEARCH',
-      research_card2_desc: 'A home for research notes, binary format exploration, and technical documentation.', research_card2_link: 'Open repository',
-      direction_overline: "WHAT'S NEXT", direction_title: 'Built to keep exploring.',
-      direction_desc: "We're exploring ideas for practical, lightweight tools that make game data easier to inspect, understand, and work with. We'll share public work when it's ready.",
-      direction_cta: 'Follow on GitHub',
-      step_1_title: 'Discover', step_1_desc: 'Find the patterns hidden in unfamiliar data.',
-      step_2_title: 'Understand', step_2_desc: 'Document the structure, behavior, and connections.',
-      step_3_title: 'Build', step_3_desc: 'Turn knowledge into useful tools and workflows.',
-      step_4_title: 'Preserve', step_4_desc: 'Keep valuable technical knowledge accessible.',
-      closing_label: "LET'S CONNECT", closing_title: 'The best discoveries start with a question.',
-      closing_text: "Researching a strange file format? Working on a related project? We'd love to exchange ideas.",
-      closing_cta: 'Find us on GitHub', footer_caption: 'Independent game technology research.'
+      nav_work:'Work',nav_expertise:'Expertise',nav_roadmap:'Roadmap',nav_contact:'Contact',
+      hero_label:'GAME TECHNOLOGY / RESEARCH LAB',hero_title:'Beyond<br>the <em>source.</em>',
+      hero_lead:'We look beneath the surface of digital worlds.',
+      hero_description:'Reverse engineering, binary formats and focused tools. Turning undocumented technology into knowledge that lasts.',
+      hero_btn_work:'Explore our work',hero_btn_roadmap:'View roadmap',hero_footer:'Research · Understand · Rebuild',hero_scroll:'SCROLL TO DISCOVER',
+      stage_label:'STRUCTURE STUDY',stage_footer:'ILLUSTRATIVE VISUAL / NOT SOFTWARE',
+      work_tag:'SELECTED RESEARCH',work_title:'Real questions.<br><em>Real exploration.</em>',
+      work_intro:'We prefer to show the work, not just talk about it. A few public starting points from BOVA’s research journey.',
+      work_one_tag:'ORIGINAL RESEARCH / ALLODS ONLINE',work_one_type:'BACKGROUND / REVERSE ENGINEERING',
+      work_one_title:'Allods Online: Client Research',
+      work_one_desc:'Earlier investigation into the client, its internals and custom tools — where this research journey began.',
+      work_one_link:'Read the original story',work_two_tag:'PUBLIC REPOSITORY / GITHUB',work_two_type:'OPEN REPOSITORY / DOCUMENTATION',
+      work_two_desc:'A public home for notes, format studies and technical documentation as they become ready.',work_two_link:'Open on GitHub',
+      expertise_tag:'WHAT WE STUDY',expertise_title:'Curiosity, with<br><em>a technical edge.</em>',
+      expertise_intro:'We explore the systems, formats and assets that make digital worlds work.',
+      expertise_1_title:'Reverse Engineering',expertise_1_desc:'Understanding undocumented software and internal behavior.',
+      expertise_2_title:'Binary Formats',expertise_2_desc:'Studying file headers, archives, serialization and data layouts.',
+      expertise_3_title:'3D Game Assets',expertise_3_desc:'Examining mesh geometry, textures, materials and scene data.',
+      expertise_4_title:'Tools & Preservation',expertise_4_desc:'Creating focused utilities and documenting hard-won knowledge.',
+      roadmap_tag:'THE PATH AHEAD',roadmap_title:'From raw data<br><em>to living worlds.</em>',
+      roadmap_intro:'A research-driven direction, not a promise of release dates. Each step builds on what we learn before it.',
+      roadmap_current:'Current focus',roadmap_future:'Exploratory plans',phase_now:'NOW',phase_explore:'EXPLORE',phase_plan:'PLANNED',phase_concept:'CONCEPT',phase_longterm:'LONG TERM',
+      phase_1_title:'Lay the groundwork.',phase_1_desc:'Collect earlier research, organize technical notes and establish the BOVA knowledge base.',
+      phase_2_title:'Decode the formats.',phase_2_desc:'Investigate binary containers, object structures, geometry and texture data. Document findings.',
+      phase_3_title:'Make the invisible visible.',phase_3_desc:'Explore a lightweight viewer for decoded 3D assets and textures, once the formats are understood.',
+      phase_4_title:'Build with the data.',phase_4_desc:'Prototype map and scene tools for placing and transforming objects, with export compatibility investigated separately.',
+      phase_5_title:'Share what we learn.',phase_5_desc:'Publish responsible research, documentation and useful tools when they are ready to share.',
+      route_end:'THE NEXT DISCOVERY IS STILL AHEAD',roadmap_note:'This is a proposed direction. Scope and order may change as research progresses; no release dates are implied.',
+      ethos_tag:'WHY WE DO IT',ethos_title:'Some things are<br><em>worth figuring out.</em>',
+      ethos_p1:'Games are built from years of engineering decisions. A file without documentation is still a piece of that history.',
+      ethos_p2:'We approach these systems with patience, curiosity and a preference for sharing knowledge responsibly.',
+      contact_tag:'LET’S TALK',contact_title:'Working on something<br><em>worth exploring?</em>',
+      contact_desc:'Unusual data structures, archival research or ideas for useful tools? Let’s compare notes.',
+      contact_mail:'Get in touch',contact_note:'Research and collaboration · Shared with care',footer_description:'Independent game technology research.'
     },
     ru: {
-      nav_about: 'О проекте', nav_focus: 'Направления', nav_research: 'Исследования', nav_direction: 'Планы',
-      hero_eyebrow: 'НЕЗАВИСИМЫЕ ИССЛЕДОВАНИЯ ИГРОВЫХ ТЕХНОЛОГИЙ',
-      hero_line_1: 'За пределами', hero_line_2: 'исходного кода.', hero_subline: 'Туда, где нет документации.',
-      hero_description: 'Исследуем то, что скрыто внутри игр: недокументированные бинарные форматы, устройство клиентов и инструменты, которые помогают разобраться в сложных системах.',
-      hero_primary: 'Наши исследования', hero_secondary: 'О проекте BOVA', scroll: 'ЛИСТАЙТЕ НИЖЕ',
-      about_overline: 'КТО МЫ', about_title: 'Всё начинается с любопытства.',
-      about_p1: 'BOVA — независимый исследовательский проект, посвящённый технологиям, которые лежат в основе игр.',
-      about_p2: 'Мы разбираем неизвестные форматы, изучаем устройство клиентов и игровых ресурсов, превращаем сложные находки в полезные знания. Меньше громких слов — больше исследований и экспериментов.',
-      about_signature: 'ИССЛЕДОВАТЬ · ПОНЯТЬ · ВОССОЗДАТЬ',
-      focus_overline: 'НАШ ФОКУС', focus_title: 'Исследуем неизведанное.',
-      focus_subtitle: 'Четыре направления, один подход: смотреть глубже, проверять догадки и объяснять сложное.',
-      focus_1_title: 'Реверс-инжиниринг', focus_1_text: 'Изучаем игровые клиенты и недокументированные системы, чтобы понимать их внутреннюю работу.',
-      focus_2_title: 'Бинарные форматы', focus_2_text: 'Исследуем структуры файлов, архивы, сериализацию и связи между данными.',
-      focus_3_title: 'Игровые ресурсы', focus_3_text: 'Разбираемся с геометрией, текстурами, картами и устройством виртуальных миров.',
-      focus_4_title: 'Разработка инструментов', focus_4_text: 'Проектируем небольшие утилиты для анализа, просмотра и обработки игровых ресурсов.',
-      research_overline: 'НАШ ОПЫТ', research_title: 'От гипотез — к исследованиям.',
-      research_subtitle: 'Материалы и техническая работа, с которых начинался BOVA.',
-      research_card1_tag: 'ЗАМЕТКИ / РЕВЕРС-ИНЖИНИРИНГ', research_card1_kind: 'РАННИЕ ИССЛЕДОВАНИЯ',
-      research_card1_title: 'Исследование клиента Allods Online',
-      research_card1_desc: 'Наш предыдущий опыт анализа клиента, реверс-инжиниринга и разработки собственных инструментов.',
-      research_card1_link: 'Читать историю', research_card2_tag: 'ПУБЛИЧНЫЙ РЕПОЗИТОРИЙ', research_card2_kind: 'GITHUB / ИССЛЕДОВАНИЯ',
-      research_card2_desc: 'Место для технических заметок, исследований бинарных форматов и документации.', research_card2_link: 'Открыть репозиторий',
-      direction_overline: 'ЧТО ДАЛЬШЕ', direction_title: 'Продолжаем исследовать.',
-      direction_desc: 'Нас интересуют идеи простых и лёгких инструментов для работы с игровыми данными. Публиковать разработки и документацию будем по мере готовности.',
-      direction_cta: 'Следить на GitHub',
-      step_1_title: 'Находить', step_1_desc: 'Замечать закономерности в неизвестных данных.',
-      step_2_title: 'Разбираться', step_2_desc: 'Изучать структуру, поведение и взаимосвязи.',
-      step_3_title: 'Создавать', step_3_desc: 'Превращать знания в полезные инструменты.',
-      step_4_title: 'Сохранять', step_4_desc: 'Делать технические знания доступными.',
-      closing_label: 'НА СВЯЗИ', closing_title: 'Лучшие открытия начинаются с вопроса.',
-      closing_text: 'Исследуете необычный формат или работаете над похожим проектом? Будем рады обменяться опытом и идеями.',
-      closing_cta: 'Связаться через GitHub', footer_caption: 'Независимые исследования игровых технологий.'
+      nav_work:'Работы',nav_expertise:'Направления',nav_roadmap:'Дорожная карта',nav_contact:'Контакты',
+      hero_label:'ИССЛЕДОВАНИЕ ИГРОВЫХ ТЕХНОЛОГИЙ',hero_title:'За гранью<br><em>исходного кода.</em>',
+      hero_lead:'Исследуем то, что скрыто внутри цифровых миров.',
+      hero_description:'Реверс-инжиниринг, бинарные форматы и собственные инструменты. Превращаем недокументированные технологии в знания, которые не исчезнут.',
+      hero_btn_work:'Наши исследования',hero_btn_roadmap:'Дорожная карта',hero_footer:'Исследовать · Понять · Воссоздать',hero_scroll:'ЛИСТАЙТЕ НИЖЕ',
+      stage_label:'ИССЛЕДОВАНИЕ СТРУКТУР',stage_footer:'ВИЗУАЛИЗАЦИЯ / НЕ ГОТОВАЯ ПРОГРАММА',
+      work_tag:'НАШИ ИССЛЕДОВАНИЯ',work_title:'Меньше обещаний.<br><em>Больше исследований.</em>',
+      work_intro:'Лучше показывать работу, а не просто говорить о ней. Вот с чего начиналась история BOVA.',
+      work_one_tag:'ИСТОРИЯ ИССЛЕДОВАНИЙ / АЛЛОДЫ ОНЛАЙН',work_one_type:'НАШ ОПЫТ / РЕВЕРС-ИНЖИНИРИНГ',
+      work_one_title:'Allods Online: исследование клиента',
+      work_one_desc:'Предыдущая работа с устройством клиента, реверс-инжинирингом и собственными инструментами.',
+      work_one_link:'Читать оригинальную тему',work_two_tag:'ПУБЛИЧНЫЙ РЕПОЗИТОРИЙ / GITHUB',work_two_type:'ОТКРЫТЫЙ РЕПОЗИТОРИЙ / ДОКУМЕНТАЦИЯ',
+      work_two_desc:'Площадка для технических заметок, исследований форматов и документации по мере готовности.',work_two_link:'Перейти на GitHub',
+      expertise_tag:'ЧТО МЫ ИССЛЕДУЕМ',expertise_title:'Любопытство<br><em>и инженерный подход.</em>',
+      expertise_intro:'Нас интересуют системы, форматы и ресурсы, из которых состоят игровые миры.',
+      expertise_1_title:'Реверс-инжиниринг',expertise_1_desc:'Разбираемся в устройстве программ и недокументированных систем.',
+      expertise_2_title:'Бинарные форматы',expertise_2_desc:'Исследуем заголовки файлов, архивы, сериализацию и структуры данных.',
+      expertise_3_title:'Игровые 3D-ресурсы',expertise_3_desc:'Изучаем геометрию, текстуры, материалы и данные сцен.',
+      expertise_4_title:'Инструменты и сохранение',expertise_4_desc:'Разрабатываем специализированные утилиты и сохраняем технические знания.',
+      roadmap_tag:'НАШ ПУТЬ',roadmap_title:'От бинарных данных<br><em>к игровым мирам.</em>',
+      roadmap_intro:'Направления развития без выдуманных дат релиза. Каждый следующий шаг зависит от результатов исследования.',
+      roadmap_current:'Текущий фокус',roadmap_future:'Предварительные планы',phase_now:'СЕЙЧАС',phase_explore:'ИЗУЧЕНИЕ',phase_plan:'В ПЛАНАХ',phase_concept:'КОНЦЕПЦИЯ',phase_longterm:'ПЕРСПЕКТИВА',
+      phase_1_title:'Заложить фундамент.',phase_1_desc:'Собрать прошлые исследования, упорядочить технические заметки и сформировать базу знаний BOVA.',
+      phase_2_title:'Разобраться с форматами.',phase_2_desc:'Изучать бинарные контейнеры, структуры объектов, геометрию и текстуры. Документировать результаты.',
+      phase_3_title:'Увидеть то, что скрыто.',phase_3_desc:'Изучить возможность лёгкого просмотрщика 3D-ресурсов и текстур после разбора форматов.',
+      phase_4_title:'Работать с мирами.',phase_4_desc:'Прототип редактора объектов и сцен с перемещением и поворотом. Совместимость экспорта исследовать отдельно.',
+      phase_5_title:'Поделиться результатами.',phase_5_desc:'Публиковать исследования, документацию и полезные инструменты, когда они будут готовы к распространению.',
+      route_end:'СЛЕДУЮЩЕЕ ОТКРЫТИЕ ЕЩЁ ВПЕРЕДИ',roadmap_note:'Это предварительная дорожная карта. Порядок и объём работ могут измениться; сроки выпуска не обещаются.',
+      ethos_tag:'ПОЧЕМУ МЫ ЭТИМ ЗАНИМАЕМСЯ',ethos_title:'Некоторые вещи<br><em>стоит понять.</em>',
+      ethos_p1:'За любой игрой стоят годы инженерной работы. Даже файл без документации остаётся частью этой истории.',
+      ethos_p2:'Мы подходим к таким системам с терпением, интересом к деталям и желанием ответственно делиться знаниями.',
+      contact_tag:'НА СВЯЗИ',contact_title:'Нашли что-то<br><em>интересное?</em>',
+      contact_desc:'Необычные форматы, старые архивы или идеи для полезных инструментов? Будем рады обменяться опытом.',
+      contact_mail:'Написать нам',contact_note:'Исследования и сотрудничество · Ответственный обмен',footer_description:'Независимые исследования игровых технологий.'
     }
   };
 
-  const menuButton = document.querySelector('.menu-button');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const menuTrigger = document.querySelector('.menu-trigger');
   const mobileNav = document.querySelector('#mobile-nav');
-  const langButtons = document.querySelectorAll('.language-button');
+  const header = document.querySelector('.site-header');
+  const backToTop = document.querySelector('#back-to-top');
+  const route = document.querySelector('#route');
+  const routeTrack = document.querySelector('.route-track');
+  const routeSteps = [...document.querySelectorAll('.route-step')];
 
-  function setMenu(open) {
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  const navLabels = {en:{open:'Open navigation',close:'Close navigation',back:'Back to top'},ru:{open:'Открыть меню',close:'Закрыть меню',back:'Наверх'}};
+  function applyLanguage(lang) {
+    const language = dictionary[lang] ? lang : 'en';
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-i18n]').forEach(node => {
+      const next = dictionary[language][node.dataset.i18n];
+      if (next !== undefined) node.textContent = next;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(node => {
+      const next = dictionary[language][node.dataset.i18nHtml];
+      if (next !== undefined) node.innerHTML = next; // Static curated translation strings only.
+    });
+    document.querySelectorAll('.language-option').forEach(btn => {
+      const current = btn.dataset.lang === language;
+      btn.classList.toggle('is-active',current);
+      btn.setAttribute('aria-pressed',String(current));
+    });
+    menuTrigger.setAttribute('aria-label',navLabels[language][menuTrigger.getAttribute('aria-expanded') === 'true'?'close':'open']);
+    backToTop.setAttribute('aria-label',navLabels[language].back);
+    try { localStorage.setItem('bova-lang',language); } catch(_) { /* private mode */ }
+  }
+  let storedLanguage = 'en';
+  try { storedLanguage = localStorage.getItem('bova-lang') || 'en'; } catch(_) { /* private mode */ }
+  applyLanguage(storedLanguage);
+  document.querySelectorAll('.language-option').forEach(button => {
+    button.addEventListener('click',() => applyLanguage(button.dataset.lang));
+  });
+
+  function toggleMenu(open) {
+    menuTrigger.setAttribute('aria-expanded',String(open));
+    menuTrigger.setAttribute('aria-label',navLabels[document.documentElement.lang][open?'close':'open']);
     mobileNav.hidden = !open;
   }
+  menuTrigger.addEventListener('click',() => toggleMenu(menuTrigger.getAttribute('aria-expanded') !== 'true'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click',() => toggleMenu(false)));
+  document.addEventListener('keydown',e => { if(e.key === 'Escape') toggleMenu(false); });
+  document.addEventListener('pointerdown',e => { if (!header.contains(e.target) && menuTrigger.getAttribute('aria-expanded') === 'true') toggleMenu(false); });
+  window.addEventListener('resize',() => { if(window.innerWidth > 760) toggleMenu(false); });
 
-  menuButton.addEventListener('click', () => {
-    setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
-  });
-  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setMenu(false);
-  });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) setMenu(false);
-  });
+  if ('IntersectionObserver' in window) {
+    const appear = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          appear.unobserve(entry.target);
+        }
+      }
+    },{rootMargin:'0px 0px -50px 0px',threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el => appear.observe(el));
 
-  function setLanguage(lang) {
-    const dict = translations[lang] || translations.en;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(node => {
-      const translation = dict[node.dataset.i18n];
-      if (translation) node.textContent = translation;
-    });
-    langButtons.forEach(button => {
-      const active = button.dataset.lang === lang;
-      button.classList.toggle('is-active', active);
-      button.setAttribute('aria-pressed', String(active));
-    });
-    document.querySelector('meta[name="description"]').content = lang === 'ru'
-      ? 'BOVA — независимый проект по реверс-инжинирингу, исследованию бинарных форматов, игровых технологий и разработке инструментов.'
-      : 'BOVA is an independent initiative exploring reverse engineering, binary formats, game technology and digital preservation.';
-    document.title = lang === 'ru' ? 'BOVA — За пределами исходного кода' : 'BOVA — Beyond the Source';
-    try { localStorage.setItem('bova-lang', lang); } catch (error) { /* local storage may be blocked */ }
-    if (menuButton.getAttribute('aria-expanded') === 'true') setMenu(false);
+    const navSections = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          document.querySelectorAll('.desktop-nav a').forEach(a => a.classList.toggle('is-current',a.hash === '#'+entry.target.id));
+        }
+      });
+    },{rootMargin:'-25% 0px -65% 0px'});
+    document.querySelectorAll('main section[id]').forEach(el => navSections.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   }
 
-  langButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
-  let savedLanguage = 'en';
-  try { savedLanguage = localStorage.getItem('bova-lang') || (navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en'); }
-  catch (error) { savedLanguage = 'en'; }
-  setLanguage(translations[savedLanguage] ? savedLanguage : 'en');
-  document.querySelector('#year').textContent = String(new Date().getFullYear());
+  let ticking = false;
+  function updateScroll() {
+    ticking = false;
+    const y = window.scrollY;
+    header.classList.toggle('is-scrolled',y > 32);
+    backToTop.classList.toggle('is-visible',y > 650);
+    if (route && routeTrack) {
+      const bounds = routeTrack.getBoundingClientRect();
+      const marker = window.innerHeight * .54;
+      const progress = Math.min(100,Math.max(0,(marker - bounds.top)/Math.max(1,bounds.height)*100));
+      route.style.setProperty('--route-progress',progress.toFixed(2)+'%');
+      routeSteps.forEach((step,index) => {
+        const node = step.querySelector('.route-node');
+        const nodeCenter = node.getBoundingClientRect().top + node.offsetHeight/2;
+        step.classList.toggle('is-active',nodeCenter < marker && (index === routeSteps.length-1 || routeSteps[index+1].querySelector('.route-node').getBoundingClientRect().top > marker - 20));
+      });
+    }
+  }
+  window.addEventListener('scroll',() => { if (!ticking) { ticking = true; requestAnimationFrame(updateScroll); } },{passive:true});
+  window.addEventListener('resize',updateScroll);
+  updateScroll();
+  backToTop.addEventListener('click',() => window.scrollTo({top:0,behavior:reducedMotion.matches?'auto':'smooth'}));
+
+  const stage = document.querySelector('#hero-stage');
+  if (stage && window.matchMedia('(pointer:fine)').matches && !reducedMotion.matches) {
+    let frame = 0;
+    let localX = .5,localY = .5;
+    stage.addEventListener('pointermove',event => {
+      const rect = stage.getBoundingClientRect();
+      localX = Math.max(0,Math.min(1,(event.clientX-rect.left)/rect.width));
+      localY = Math.max(0,Math.min(1,(event.clientY-rect.top)/rect.height));
+      if(frame) return;
+      frame=requestAnimationFrame(() => {
+        stage.style.setProperty('--mx',Math.round(localX*100)+'%');
+        stage.style.setProperty('--my',Math.round(localY*100)+'%');
+        stage.style.setProperty('--tiltY',((localX-.5)*5).toFixed(2)+'deg');
+        stage.style.setProperty('--tiltX',((.5-localY)*5).toFixed(2)+'deg');
+        frame=0;
+      });
+    });
+    stage.addEventListener('pointerleave',() => {
+      stage.style.setProperty('--tiltX','0deg');stage.style.setProperty('--tiltY','0deg');
+      stage.style.setProperty('--mx','50%');stage.style.setProperty('--my','50%');
+    });
+  }
+  document.querySelectorAll('.work-card').forEach(card => {
+    if (reducedMotion.matches || !window.matchMedia('(pointer:fine)').matches) return;
+    card.addEventListener('pointermove',event => {
+      const rect=card.getBoundingClientRect();
+      card.style.setProperty('--mx',event.clientX-rect.left+'px');
+      card.style.setProperty('--my',event.clientY-rect.top+'px');
+    },{passive:true});
+  });
+  const year = document.querySelector('#year');
+  if (year) year.textContent = new Date().getFullYear();
 })();
